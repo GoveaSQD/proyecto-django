@@ -23,6 +23,36 @@
 			<!-- /Encabezado-->
 {% endblock %}
 {% block content %}
+			<!--tabla de Alumnos-->
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Foto</th>
+						<th>Matricula</th>
+						<th>Nombre</th>
+						<th>Carrera</th>
+						<th>Turno</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for alumno in alumnos %}
+					<tr>
+						<td class="text-center">
+							{% if alumno.imagen %}
+    							<img src="{{ alumno.imagen.url }}" alt="" class="img-media">
+							{% else %}
+   								<span>Sin imagen</span>
+							{% endif %}
+						</td>
+						<td class="text-semibold">{{ alumno.matricula }}</td>
+						<td class="muted">{{ alumno.nombre }}</td>
+						<td class="muted">{{ alumno.carrera }}</td>
+						<td class="muted">{{ alumno.turno }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<!-- /tabla de Alumnos-->
 {% endblock %}
 {% block navegacion %}
 <!-- Barra de navegación-->

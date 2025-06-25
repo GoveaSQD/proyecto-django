@@ -1,13 +1,18 @@
 from django.shortcuts import render, HttpResponse
-
+from .models import Alumnos
+from inicio import views as views_registros
 # Create your views here.
 
 menu = """
     
 """
 
+def registros(request):
+    alumnos = Alumnos.objects.all()
+    return render(request, 'registros/principal.html', {'alumnos': alumnos, 'menu': menu})
+
 def principal(request):
-    return render(request, 'inicio/principal.html')
+    return render(request, 'registros/principal.html')
 
 def contacto(request):
     return render(request, 'inicio/contacto.html')

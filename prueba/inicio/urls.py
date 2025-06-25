@@ -1,5 +1,5 @@
 """
-URL configuration for practicaFowie project.
+URL configuration for prueba project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -17,11 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from inicio import views
+from django.conf import settings
+from registros import views as views_registros
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Principal, name='principal'),
-    path('contacto/', views.Contacto, name='contacto'),
-    path('formulario/', views.Formulario, name='formulario'),
-    path('ejemplo/', views.Ejemplo, name='ejemplo'),
+    path('', views.registros, name='principal'),
+    path('contacto/', views.contacto, name='contacto'),
+    path('formulario/', views.formulario, name='formulario'),
+    path('ejemplo/', views.ejemplo, name='ejemplo'),
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
