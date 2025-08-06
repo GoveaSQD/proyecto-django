@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'inicio',  # aplicación personalizada
     'registros.apps.RegistrosConfig',  # aplicación personalizada
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
