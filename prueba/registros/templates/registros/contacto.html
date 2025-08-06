@@ -1,0 +1,74 @@
+{% extends "inicio/encabezado.html"%}
+
+z
+
+{% block imagen %}
+    {% load static %}
+    {% static 'inicio/images/contacto.png' %}
+{% endblock %}
+
+{% block txtimg %}
+    <div class="user-info">
+        Contacto <span>Envía Mensajes</span>
+    </div>
+{% endblock %}
+
+            {% block navegacion %}
+	<!-- Barra de navegación-->
+
+		 <div class="breadcrumb-line">
+				<ul class="breadcrumb">
+				
+				<a href="{% url 'principal' %}">
+						{% if request.pat == '/' %}
+							<h1>Principal</h1>
+						{% else %}
+							Principal{{ request.path }}
+						{% endif %}
+					   </a>
+				 
+				</ul>
+		</div>
+
+		  <!-- /Barra de navegación-->
+			{% endblock %}
+
+{% block encabezado %}
+			<!--Encabezdo -->
+			<div class="page-header">
+				<div class="page-title">
+					<h3>Contactanos
+				    <small>Ingresa tus datos</small></h3>
+                    </div>
+			</div>
+{% endblock %}
+
+{% block content %}
+<form class="form-horizontal" action="{% url 'Registrar'%}" method="POST" role="form">
+{%csrf_token%}
+<div class="panel panel-default">
+<div class="panel-body">
+<div class="form-group">
+    <label class="col-sm-2 control-label text-right">Nombre:</label>
+    <div class="col-sm-10">
+        <input name="usuario" type="text" class="form-control">
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label text-right">Mensaje:</label>
+    <div class="col-sm-10">
+        <textarea name="mensaje" cols="50" rows="10" class="form-control">
+        </textarea>
+    </div>
+</div>
+
+<div class="form-actions text-right">
+    <input type="submit" value="Enviar" class="btn btn-primary">
+</div>
+
+</div>
+</div>
+</form>
+<!-- Fin del Formulario -->
+{% endblock %}
+
