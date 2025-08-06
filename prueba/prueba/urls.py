@@ -23,9 +23,30 @@ from registros import views as views_registros
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.registros, name='principal'),
-    path('contacto/', views.contacto, name='contacto'),
+    path('contacto/', views_registros.contacto, name='contacto'),  # <-- minúscula aquí
     path('formulario/', views.formulario, name='formulario'),
     path('ejemplo/', views.ejemplo, name='ejemplo'),
+    path('registrar/', views_registros.registrar, name="Registrar"),
+    path('comentarios/', views_registros.comentarios_contacto, name='comentarios_contacto'),
+    path('EliminarComentario/<int:id>/', views_registros.eliminarComentarioContacto, name='Eliminar'),
+    path('consultas1', views_registros.consultar1, name='Consultas'),
+    path('consultas2', views_registros.consultar2, name='Consultas'),
+    path('consultas3', views_registros.consultar3, name='Consultas'),
+    path('consultas4', views_registros.consultar4, name='Consultas'),
+    path('consultas5', views_registros.consultar5, name='Consultas'),
+    path('consultas6', views_registros.consultar6, name='Consultas'),
+    path('consultas7', views_registros.consultar7, name='Consultas'),
+    
+    path('consultas8', views_registros.consultar8, name='Consultas'),
+    path('consultas9', views_registros.consultar9, name='Consultas'),
+    path('consultas10', views_registros.consultar10, name='Consultas'),
+    path('consultas11', views_registros.consultar11, name='Consultas'),
+    path('consultas12', views_registros.consultar12, name='Consultas'),
+    path('subir', views_registros.archivos, name='Subir'),
+
+    path('consultasSQL', views_registros.consultasSQL, name="sql"),
+    
+    path('seguridad', views_registros.seguridad, name='Seguridad'),
 ]
 
 if settings.DEBUG:

@@ -18,8 +18,6 @@ class Alumnos(models.Model): #Define la estructura de nuestra tabla
     def __str__(self):
         return self.nombre
 
-    class Alumnos(models.Model):
-        matricula = models.CharField(max_length=12, verbose_name='Mat')
 # Create your models here.
 class Comentario(models.Model):
         id = models.AutoField(primary_key=True, verbose_name='Clave')

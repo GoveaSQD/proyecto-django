@@ -84,6 +84,16 @@ DATABASES = {
     }
 }
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'ejemplo',
+#        'USER': 'root',
+#        'PASSWORD': 'GoveaSQD',
+#        'HOST': 'localhost',
+#        'PORT': '3306',
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -119,7 +129,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -128,3 +139,29 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_CONFIGS ={
+    'default' :{
+        'toolbar':'Custom', #Cambiarlo por Basic y None y observar los cambios
+        'toolbar_Custom':[
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Intdent', '-',
+             'JustifyLent', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+             ['Line', 'UnLink'],
+             ['RemoveFormat', 'Source']
+        ]
+    }
+}
+
+# settings.py
+
+LANGUAGE_CODE = 'es-mx'  # Español (México)
+# Otras opciones válidas:
+# 'es-es' (España)
+# 'es-ar' (Argentina)
+# 'es-co' (Colombia)
+
+USE_TZ = False
+
+USE_I18N = True  # Habilita internacionalización
+USE_L10N = True  # Habilita localización (formatos de fecha/números)
